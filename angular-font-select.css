@@ -1,10 +1,10 @@
 .font-group-input {
-	background-color: #ffffff;
+	background-color: #ffffff !important;
 	border: 1px solid #cccccc;
 	border-radius: 4px;
-	cursor: pointer;
+	cursor: pointer !important;
 	padding: 0 5px;
-	width: 200px;
+	width: 200px !important;
 }
 
 .font-group-caret {
@@ -15,27 +15,51 @@
 }
 
 .font-group-options {
-	z-index: 5000;
 	background-color: white;
-	border: 1px solid #cccccc;
 	border-radius: 0px 0px 4px 4px;
-	padding: 5px 0;
-	position: absolute;
-	top: 18px;
-	max-height: 200px;
+	display: block;
 	overflow: scroll;
+	position: absolute;
+	top: 22px;
 	width: 100%;
+	z-index: 5000;
+	-webkit-transition: all .15s ease-in-out;
+	   -moz-transition: all .15s ease-in-out;
+	    -ms-transition: all .15s ease-in-out;
+	     -o-transition: all .15s ease-in-out;
+	        transition: all .15s ease-in-out;
+
+	/*When Closed*/
+	border: none;
+	height: 0px;
+	opacity: 0;
+}
+
+.font-dropdown.open .font-group-options {
+	border: 1px solid #66afe9;
+	border-top-color: #cccccc;
+	height: 150px;
+	opacity: 1;
+	padding: 5px 0;
+}
+
+.font-group-list-item {
+	padding: 0 5px;
+}
+
+.font-dropdown:not(.open) .font-group-list-item {
+	position: fixed;
+	top: -2000px;
 }
 
 .font-group-list-item {
 	cursor: pointer;
-	padding: 0 5px;
 }
 
 .font-group-list-item.active {
-	background-color: #0088cc;
+	background-color: #428bca;
 }
 
 .font-group-list-item:hover {
-	background-color: #00a3f4;
+	background-color: #4ea4f0;
 }
