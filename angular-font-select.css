@@ -1,30 +1,17 @@
-.font-group-container {
-	display: inline-block;
-	position: relative;
-}
-
-.font-group-selector {
-	background-color: #ffffff !important;
+.font-group-input {
+	background-color: #ffffff;
 	border: 1px solid #cccccc;
 	border-radius: 4px;
-	color: #555555;
-	cursor: pointer !important;
-	display: inline-block;
-	font-size: 14px;
-	height: 27px;
-	line-height: 20px;
-	margin: auto;
-	padding: 4px 6px;
-	position: relative;
-	text-align: left;
-	vertical-align: middle;
-	width: 190px;
+	cursor: pointer;
+	padding: 0 5px;
+	width: 200px;
 }
 
 .font-group-caret {
+	cursor: pointer;
 	position: absolute;
 	right: 6px;
-	top: 10px;
+	top: 9px;
 }
 
 .font-group-options {
@@ -32,24 +19,23 @@
 	background-color: white;
 	border: 1px solid #cccccc;
 	border-radius: 0px 0px 4px 4px;
-	box-shadow: 0px 6px 12px #b8b8b8;
-	width: 190px;
 	padding: 5px 0;
 	position: absolute;
-	top: 24px;
+	top: 18px;
 	max-height: 200px;
 	overflow: scroll;
+	width: 100%;
 }
 
 .font-group-list-item {
 	cursor: pointer;
+	padding: 0 5px;
 }
 
-.font-group-list-item:hover, .font-group-list-item.active {
+.font-group-list-item.active {
 	background-color: #0088cc;
 }
 
-.font-group-list-item span {
-	margin-left: 5px;
-	margin-bottom: 2px;
+.font-group-list-item:hover {
+	background-color: #00a3f4;
 }

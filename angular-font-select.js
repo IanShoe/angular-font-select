@@ -1,12 +1,15 @@
 angular.module('ui.bootstrap.font-group', []).
 run(["$templateCache", function($templateCache) {
 	$templateCache.put("template/font-group/font-group.html",
-		"<div class=\"dropdown\">" +
-			"<input class=\"dropdown-toggle font-group-selector\" ng-style=\"{'font-family': font}\" ng-model=\"font\" readonly>" +
+		"<span class=\"dropdown\">" +
+			"<span class=\"dropdown-toggle\">" +
+				"<input class=\"font-group-input\" ng-style=\"{'font-family': font}\" ng-model=\"font\" readonly>" +
+				"<b class=\"font-group-caret caret\"></b>" +
+			"</span>" +
 			"<div class=\"font-group-options dropdown-menu\">" +
-				"<div class=\"font-group-list-item\" ng-repeat=\"fontOption in fonts\" ng-style=\"{'font-family': fontOption}\" ng-class=\"{'active': currentFont == fontOption}\" ng-click=\"selectFont(fontOption)\"><span>{{fontOption}}</span></div>" +
+				"<div class=\"font-group-list-item\" ng-repeat=\"fontOption in fonts\" ng-style=\"{'font-family': fontOption}\" ng-class=\"{'active': currentFont == fontOption}\" ng-click=\"selectFont(fontOption)\">{{fontOption}}</div>" +
 			"</div>" +
-		"</div>"
+		"</span>"
 		);
 }]).
 directive('fontGroup', ['$document', function ($document) {
@@ -34,8 +37,8 @@ directive('fontGroup', ['$document', function ($document) {
 			};
 
 			element.bind('keydown', function (evt) {
-				evt.preventDefault();
 				if (evt.which === 40) {
+					evt.preventDefault();
 					element.addClass('open');
 					if(index < scope.fonts.length -1){
 						scope.$apply(function(){
@@ -44,6 +47,7 @@ directive('fontGroup', ['$document', function ($document) {
 						});
 					}
 				} else if (evt.which === 38) {
+					evt.preventDefault();
 					element.addClass('open');
 					if(index > 0){
 						scope.$apply(function(){
@@ -51,12 +55,20 @@ directive('fontGroup', ['$document', function ($document) {
 							index--;
 						});
 					}
-				} else if (evt.which === 13 || evt.which === 9) {
+				} else if (evt.which === 13) {
+					evt.preventDefault();
 					scope.$apply(function() {
 						scope.font = scope.currentFont;
 					});
 					close();
-				} else if (evt.which === 27) {
+				} else if (evt.which === 9) {
+					scope.$apply(function() {
+						scope.font = scope.currentFont;
+					});
+					close();
+				}
+				else if (evt.which === 27) {
+					evt.preventDefault();
 					index = scope.fonts.indexOf(scope.font);
 					evt.stopPropagation();
 					close();
