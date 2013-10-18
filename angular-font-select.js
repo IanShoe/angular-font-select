@@ -10,7 +10,7 @@ run(["$templateCache", function($templateCache) {
 				"<div class=\"font-group-list-item\" ng-repeat=\"fontOption in fonts | orderBy:'toString()'\" ng-style=\"{'font-family': fontOption}\" ng-class=\"{'active': currentFont == fontOption}\" ng-click=\"selectFont(fontOption)\">{{fontOption}}</div>" +
 			"</div>" +
 		"</span>"
-		);
+		); // TODO: can put a font filter like this -->  |filter:font  but need to write some better functionality then
 }]).
 directive('fontGroup', [function () {
 	return {
