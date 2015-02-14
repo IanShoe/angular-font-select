@@ -1,5 +1,6 @@
 {
   "name": "angular-font-select",
   "version": "0.0.2",
-  "main": "./angular-font-select.js"
+  "main": ["angular-font-select.js", "angular-font-select.css"],
+  "dependancies": {}
 }
